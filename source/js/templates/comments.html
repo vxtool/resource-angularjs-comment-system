@@ -1,0 +1,28 @@
+<div>
+  <ul ng-if="comments.length">
+    <li ng-repeat="comment in comments">
+      <header>
+        <h1 ng-if="comment.author.website.length == 0" ng-class="{ author: isAuthor(comment.author.email) }">{{ comment.author.name }}</h1>
+        <h1 ng-if="comment.author.website.length &gt; 0" ng-class="{ author: isAuthor(comment.author.email) }"><a ng-href="//{{ comment.author.website }}">{{ comment.author.name }}</a></h1>
+        <button ng-click="loveComment(comment.id)" ng-class="{ loved: comment.loved }" class="love">
+          <svg viewBox="0 0 100 100">
+            <use xlink:href="#icon_love"></use>
+          </svg>
+        </button>
+        <button ng-click="addReply(comment.author.name)" class="reply">
+          <svg viewBox="0 0 100 100">
+            <use xlink:href="#icon_reply"></use>
+          </svg>
+        </button><img ng-src="{{ getGravatar(comment.author.email) }}"/>
+      </header>
+      <article ng-bind-html="parseContent(comment.content)"></article>
+    </li>
+  </ul>
+  <form name="form" ng-submit="form.$valid &amp;&amp; addNewComment()" novalidate="novalidate">
+    <input type="text" placeholder="Name" ng-pattern="/[a-zA-Z.,-]+/" ng-model="newComment.author.name" required="required"/>
+    <textarea placeholder="Comment" ng-model="newComment.content" required="required"></textarea>
+    <input type="email" placeholder="Email" ng-model="newComment.author.email" required="required"/>
+    <input type="url" placeholder="Website" ng-model="newComment.author.website"/>
+    <button type="submit" class="ripple">Add comment</button><img id="newCommentAvatar" ng-src="{{ getGravatar(newComment.author.email) }}"/>
+  </form>
+</div>
