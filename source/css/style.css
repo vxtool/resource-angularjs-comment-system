@@ -1,0 +1,90 @@
+html {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+* {margin: 0; padding: 0; list-style: none;}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #e6e6e5;
+  font-family: Arial;
+}
+
+fieldset {border: none;}
+legend {display: none;}
+
+.comments {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.comment {
+  background: #fff;
+  margin-bottom: 10px;
+  margin-left: 80px;
+  padding: 10px;
+  position: relative;
+}
+
+.comment-header {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+.comment-header:before, .comment-header:after { content: " "; display: table; }
+.comment-header:after { clear: both; }
+
+.comment-gravatar {
+  border: 4px solid #fff;
+  display: inline-block;
+  float: left;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: -70px;
+  width: 50px;
+}
+
+.comment-author {
+  color: #a7a7a7;
+  float: left;
+}
+
+.comment-author-link {
+  color: #a7a7a7;
+  text-decoration: none;
+}
+
+.comment-content {}
+
+.button {
+  background: none;
+  border: 0;
+  float: right;
+}
+.button svg {
+  width: 20px;
+  height: 20px;
+  fill: #999;
+}
+.button:hover svg * { fill: #666; }
+.button.loved svg * { fill: #f66; }
+
+
+// Form
+.form, form {
+  background: #fff;
+  margin: 0 auto;
+  max-width: 800px;
+  border: 1px solid red;
+}
+
+.form-field {}
+.form-field--textarea {}
