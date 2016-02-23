@@ -1,28 +1,51 @@
+<svg viewBox="0 0 100 100" style="display:none">
+  <defs>
+    <path id="icon_love" d="M73.4,6c-10.2,0-19,5.7-23.4,14.1C45.5,11.7,36.7,6,26.6,6C11.9,6,0,18,0,32.7C0,68.9,50,94,50,94 s50-25.1,50-61.3C100,18,88.1,6,73.4,6L73.4,6z"></path>
+    <path id="icon_reply" d="M75.9,100C87,79.9,88.9,49.2,45.4,50.2V75L8,37.5L45.4,0v24.3C97.4,22.9,103.2,70.4,75.9,100z"></path>
+  </defs>
+</svg>
 <div>
-  <ul ng-if="comments.length">
-    <li ng-repeat="comment in comments">
-      <header>
-        <h1 ng-if="comment.author.website.length == 0" ng-class="{ author: isAuthor(comment.author.email) }">{{ comment.author.name }}</h1>
-        <h1 ng-if="comment.author.website.length &gt; 0" ng-class="{ author: isAuthor(comment.author.email) }"><a ng-href="//{{ comment.author.website }}">{{ comment.author.name }}</a></h1>
-        <button ng-click="loveComment(comment.id)" ng-class="{ loved: comment.loved }" class="love">
+  <section class="comments" ng-if="comments.length">
+    <div class="comment" ng-repeat="comment in comments">
+      <header class="comment-header">
+        <h1 class="comment-author" ng-if="comment.author.website.length == 0" ng-class="{ author: isAuthor(comment.author.email) }">{{ comment.author.name }}</h1>
+        <h1 class="comment-author" ng-if="comment.author.website.length &gt; 0" ng-class="{ author: isAuthor(comment.author.email) }"><a class="comment-author-link" ng-href="//{{ comment.author.website }}">{{ comment.author.name }}</a></h1>
+
+        <button class="button reply" ng-click="addReply(comment.author.name)">
+          <svg viewBox="0 0 100 100">
+            <use xlink:href="#icon_reply"></use>
+          </svg>
+        </button>
+        <button class="button love" ng-click="loveComment(comment.id)" ng-class="{ loved: comment.loved }">
           <svg viewBox="0 0 100 100">
             <use xlink:href="#icon_love"></use>
           </svg>
         </button>
-        <button ng-click="addReply(comment.author.name)" class="reply">
-          <svg viewBox="0 0 100 100">
-            <use xlink:href="#icon_reply"></use>
-          </svg>
-        </button><img ng-src="{{ getGravatar(comment.author.email) }}"/>
+
+        <img class="comment-gravatar" ng-src="{{ getGravatar(comment.author.email) }}"/>
       </header>
-      <article ng-bind-html="parseContent(comment.content)"></article>
-    </li>
-  </ul>
-  <form name="form" ng-submit="form.$valid &amp;&amp; addNewComment()" novalidate="novalidate">
-    <input type="text" placeholder="Name" ng-pattern="/[a-zA-Z.,-]+/" ng-model="newComment.author.name" required="required"/>
-    <textarea placeholder="Comment" ng-model="newComment.content" required="required"></textarea>
-    <input type="email" placeholder="Email" ng-model="newComment.author.email" required="required"/>
-    <input type="url" placeholder="Website" ng-model="newComment.author.website"/>
-    <button type="submit" class="ripple">Add comment</button><img id="newCommentAvatar" ng-src="{{ getGravatar(newComment.author.email) }}"/>
-  </form>
+      <article class="comment-content" ng-bind-html="parseContent(comment.content)"></article>
+    </div>
+
+    <form class="form" name="form" ng-submit="form.$valid &amp;&amp; addNewComment()" novalidate="novalidate">
+      <fieldset>
+        <legend></legend>
+        <p>
+          <input class="form-field" type="text" placeholder="Name" ng-pattern="/[a-zA-Z.,-]+/" ng-model="newComment.author.name" required="required"/>
+        </p>
+        <p>
+          <input class="form-field" type="email" placeholder="Email" ng-model="newComment.author.email" required="required"/>
+        </p>
+        <p>
+          <input class="form-field" type="url" placeholder="Website" ng-model="newComment.author.website"/>
+        </p>
+        <p>
+          <textarea class="form-field--textarea" placeholder="Comment" ng-model="newComment.content" required="required"></textarea>
+        </p>
+        <p>
+          <button type="submit" class="ripple">Add comment</button><img id="newCommentAvatar" ng-src="{{ getGravatar(newComment.author.email) }}"/>
+        </p>
+      </fieldset>
+    </form>
+  </section>
 </div>

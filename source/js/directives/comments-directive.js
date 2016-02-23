@@ -5,9 +5,9 @@
   .module('comments')
   .directive('comments', comments);
 
-  comments.$inject = ['$rootScope', '$sce'];
+  comments.$inject = ['$rootScope', '$sce', 'md5'];
 
-  function comments($rootScope, $sce) {
+  function comments($rootScope, $sce, md5) {
     return {
       restrict: 'E',
       transclude: true,
@@ -72,11 +72,11 @@
             if (email === void 0) {
                 email = '';
             }
-            // hash = email.trim();
-            // hash = hash.toLowerCase();
-            // hash = md5(hash);
-            //return 'http://gravatar.com/avatar/' + hash + '?s=104&d=identicon';
-            return 'http://placehold.it/100x100';
+            hash = email.trim();
+            hash = hash.toLowerCase();
+            hash = md5.createHash(hash);
+            return 'http://gravatar.com/avatar/' + hash + '?s=104&d=identicon';
+            //return 'http://placehold.it/100x100';
         };
         scope.loveComment = function (commentId) {
             var comment, i, len, ref, results;
