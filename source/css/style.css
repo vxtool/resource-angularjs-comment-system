@@ -32,6 +32,8 @@ legend {display: none;}
   padding: 10px;
   position: relative;
 }
+.comment:before, .comment:after { content: " "; display: table; }
+.comment:after { clear: both; }
 
 .comment-header {
   border-bottom: 1px solid #ccc;
@@ -41,10 +43,10 @@ legend {display: none;}
 .comment-header:before, .comment-header:after { content: " "; display: table; }
 .comment-header:after { clear: both; }
 
-.comment-gravatar {
+.comment-gravatar,
+.form-image {
   border: 4px solid #fff;
   display: inline-block;
-  float: left;
   height: 50px;
   position: absolute;
   top: 0;
@@ -78,13 +80,44 @@ legend {display: none;}
 .button.loved svg * { fill: #f66; }
 
 
-// Form
-.form, form {
+.form {
   background: #fff;
   margin: 0 auto;
+  margin-left: 80px;
   max-width: 800px;
-  border: 1px solid red;
+  padding: 10px;
+  position: relative;
 }
 
-.form-field {}
-.form-field--textarea {}
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-field {
+  background: #f1f1f1;
+  border: none;
+  padding: 10px;
+  width: 100%;
+}
+.form-field--textarea {
+  background: #f1f1f1;
+  border: none;
+  height: 100px;
+  padding: 10px;
+  width: 100%;
+}
+
+.form-actions { text-align: right; }
+
+.form-actions-submit {
+  background: #1d85c8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+/* Error */
+.ng-not-empty.ng-invalid {color: #900;}

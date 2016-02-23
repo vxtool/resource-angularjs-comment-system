@@ -30,20 +30,21 @@
     <form class="form" name="form" ng-submit="form.$valid &amp;&amp; addNewComment()" novalidate="novalidate">
       <fieldset>
         <legend></legend>
-        <p>
-          <input class="form-field" type="text" placeholder="Name" ng-pattern="/[a-zA-Z.,-]+/" ng-model="newComment.author.name" required="required"/>
+        <img class="form-image" id="newCommentAvatar" ng-src="{{ getGravatar(newComment.author.email) }}"/>
+        <p class="form-group">
+          <input class="form-field" type="text" placeholder="Name" ng-pattern="/[a-zA-Z.,-]+/" ng-model="newComment.author.name" required="required" />
         </p>
-        <p>
-          <input class="form-field" type="email" placeholder="Email" ng-model="newComment.author.email" required="required"/>
+        <p class="form-group">
+          <input class="form-field" type="email" placeholder="Email" ng-model="newComment.author.email" required="required" />
         </p>
-        <p>
-          <input class="form-field" type="url" placeholder="Website" ng-model="newComment.author.website"/>
+        <p class="form-group">
+          <input class="form-field" type="url" placeholder="Website" ng-model="newComment.author.website" />
         </p>
-        <p>
+        <p class="form-group">
           <textarea class="form-field--textarea" placeholder="Comment" ng-model="newComment.content" required="required"></textarea>
         </p>
-        <p>
-          <button type="submit" class="ripple">Add comment</button><img id="newCommentAvatar" ng-src="{{ getGravatar(newComment.author.email) }}"/>
+        <p class="form-actions">
+          <button class="form-actions-submit" type="submit" class="ripple">Add comment</button>
         </p>
       </fieldset>
     </form>
