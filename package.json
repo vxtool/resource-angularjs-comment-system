@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/resource-solutions/resource-angularjs-comment-system.git"
+    "url": "git+https://github.com/descco-tools/resource-angularjs-comment-system.git"
   },
   "keywords": [
     "angularjs",
     "resource",
     "filter"
   ],
-  "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://hemersonvianna.io)",
+  "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/resource-solutions/resource-angularjs-comment-system/issues"
+    "url": "https://github.com/descco-tools/resource-angularjs-comment-system/issues"
   },
-  "homepage": "https://github.com/resource-solutions/resource-angularjs-comment-system#readme",
+  "homepage": "https://github.com/descco-tools/resource-angularjs-comment-system#readme",
   "devDependencies": {
     "angular": "^1.5.0",
     "angular-md5": "^0.1.10"
