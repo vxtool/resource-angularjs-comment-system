@@ -1,6 +1,6 @@
 {
   "name": "resource-angularjs-comment-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Comments system with AngularJS",
   "main": "index.js",
   "scripts": {
